@@ -48,8 +48,7 @@ class ZenGrad(Optimizer):
 
                 accumulator = state['accumulator']
                 accumulator.add_(grad.pow(2))  # A_t = A_{t-1} + g_t^2
-
-                # Decoupled weight decay (AdamW style)
+                
                 if weight_decay != 0:
                     p.data.mul_(1 - lr * weight_decay)
 
